@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LUXE Hair Lounge — Look Good. Feel Amazing.</title>
+<meta name="description" content="Professional haircuts & hair styling for your perfect look. Book your appointment today.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#0d0a08;
+  --dark:#1a1410;
+  --brown:#2b1f16;
+  --cream:#f3ead9;
+  --cream-soft:#efe6d4;
+  --gold:#c9a227;
+  --gold-soft:#d9b64a;
+  --white:#ffffff;
+  --muted:#b9ac97;
+  --radius:18px;
+  --shadow:0 20px 50px rgba(0,0,0,.45);
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Jost',sans-serif;
+  background:var(--black);
+  color:var(--cream);
+  line-height:1.65;
+  overflow-x:hidden;
+}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+h1,h2,h3,.serif{font-family:'Cormorant Garamond',serif;font-weight:600;line-height:1.12}
+.container{width:min(1200px,92%);margin:0 auto}
+.section{padding:100px 0;position:relative}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:14px;
+  color:var(--gold);letter-spacing:.35em;text-transform:uppercase;
+  font-size:.72rem;font-weight:500;margin-bottom:18px;
+}
+.eyebrow::before,.eyebrow.center::after{content:"";width:42px;height:1px;background:linear-gradient(90deg,transparent,var(--gold))}
+.eyebrow.center::after{background:linear-gradient(90deg,var(--gold),transparent)}
+.section-title{font-size:clamp(2.1rem,4.5vw,3.4rem);color:var(--white)}
+.section-title em{font-style:italic;color:var(--gold-soft)}
+.section-sub{color:var(--muted);max-width:560px;margin-top:14px;font-weight:300}
+.center{text-align:center}
+.center .section-sub{margin-left:auto;margin-right:auto}
+.gold-text{color:var(--gold)}
+
+/* ---------- Buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:16px 34px;border-radius:60px;font-weight:500;letter-spacing:.08em;
+  text-transform:uppercase;font-size:.8rem;transition:all .45s var(--ease);
+  cursor:pointer;border:1px solid transparent;white-space:nowrap;
+}
+.btn svg{width:17px;height:17px;flex:none}
+.btn-gold{
+  background:linear-gradient(135deg,var(--gold) 0%,#e3c766 50%,var(--gold) 100%);
+  color:#191207;box-shadow:0 12px 30px rgba(201,162,39,.35);
+  background-size:200% auto;
+}
+.btn-gold:hover{background-position:right center;transform:translateY(-3px);box-shadow:0 18px 40px rgba(201,162,39,.5)}
+.btn-outline{border-color:rgba(243,234,217,.35);color:var(--cream);background:rgba(255,255,255,.03);backdrop-filter:blur(6px)}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-3px)}
+.btn-wa{background:#1eb356;color:#fff;box-shadow:0 12px 30px rgba(30,179,86,.3)}
+.btn-wa:hover{background:#25c964;transform:translateY(-3px);box-shadow:0 18px 40px rgba(30,179,86,.45)}
+.btn-dark{background:var(--dark);color:var(--cream);border-color:rgba(201,162,39,.4)}
+.btn-dark:hover{background:var(--brown);border-color:var(--gold)}
+
+/* ---------- Header ---------- */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:22px 0;transition:all .4s var(--ease);
+}
+header.scrolled{
+  padding:12px 0;background:rgba(13,10,8,.88);
+  backdrop-filter:blur(14px);border-bottom:1px solid rgba(201,162,39,.18);
+}
+.nav{display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:12px}
+.logo-mark{
+  width:44px;height:44px;border:1px solid var(--gold);border-radius:50%;
+  display:grid;place-items:center;color:var(--gold);
+  font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;
+  background:radial-gradient(circle at 30% 30%,rgba(201,162,39,.25),transparent 70%);
+}
+.logo-name{font-family:'Cormorant Garamond',serif;font-size:1.45rem;letter-spacing:.14em;color:var(--white)}
+.logo-name span{color:var(--gold)}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{
+  font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--cream);
+  position:relative;padding:6px 0;transition:color .3s;
+}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--gold);transition:width .35s var(--ease)}
+.nav-links a:hover{color:var(--gold)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{display:flex;gap:12px;align-items:center}
+.nav-call{
+  display:flex;align-items:center;gap:9px;font-size:.82rem;letter-spacing:.06em;color:var(--cream);
+  border:1px solid rgba(201,162,39,.45);padding:11px 22px;border-radius:60px;transition:all .35s var(--ease);
+}
+.nav-call:hover{background:var(--gold);color:#191207}
+.nav-call svg{width:15px;height:15px}
+.hamburger{display:none;background:none;border:none;cursor:pointer;z-index:110;padding:8px}
+.hamburger span{display:block;width:26px;height:2px;background:var(--cream);margin:6px 0;transition:.35s var(--ease)}
+.hamburger.open span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+.mobile-menu{
+  position:fixed;inset:0;background:rgba(13,10,8,.98);backdrop-filter:blur(16px);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:34px;
+  transform:translateY(-100%);transition:transform .55s var(--ease);z-index:105;
+}
+.mobile-menu.open{transform:translateY(0)}
+.mobile-menu a{font-family:'Cormorant Garamond',serif;font-size:1.9rem;color:var(--cream)}
+.mobile-menu a:hover{color:var(--gold)}
+
+/* ---------- Hero ---------- */
+.hero{
+  min-height:100vh;display:flex;align-items:center;position:relative;
+  background:url('https://kimi-web-img.kimi.ai/img/www.bodycraft.co.in/2603d800ee41c1f806a67685323a1d1b54bcb5e7.jpg') center/cover no-repeat fixed;
+  padding:140px 0 100px;
+}
+.hero::before{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(100deg,rgba(13,10,8,.96) 20%,rgba(13,10,8,.75) 55%,rgba(13,10,8,.45) 100%);
+}
+.hero::after{
+  content:"";position:absolute;inset:auto 0 0 0;height:180px;
+  background:linear-gradient(180deg,transparent,var(--black));
+}
+.hero-inner{position:relative;z-index:2;max-width:680px}
+.hero .eyebrow{margin-bottom:22px}
+.hero h1{
+  font-size:clamp(3rem,7.5vw,5.6rem);color:var(--white);font-weight:600;
+  margin-bottom:24px;
+}
+.hero h1 em{font-style:italic;color:var(--gold);position:relative}
+.hero-sub{
+  font-size:clamp(1rem,1.6vw,1.25rem);color:var(--cream-soft);font-weight:300;
+  max-width:520px;margin-bottom:40px;letter-spacing:.02em;
+}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap}
+.hero-meta{display:flex;gap:44px;margin-top:64px;flex-wrap:wrap}
+.hero-meta .item{border-left:1px solid rgba(201,162,39,.4);padding-left:18px}
+.hero-meta .num{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--gold)}
+.hero-meta .lbl{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.scroll-hint{
+  position:absolute;bottom:34px;left:50%;transform:translateX(-50%);z-index:3;
+  width:26px;height:44px;border:1px solid rgba(243,234,217,.4);border-radius:20px;
+  display:flex;justify-content:center;padding-top:9px;
+}
+.scroll-hint::before{content:"";width:3px;height:9px;background:var(--gold);border-radius:3px;animation:scrollDot 1.8s infinite}
+@keyframes scrollDot{0%{transform:translateY(0);opacity:1}70%{transform:translateY(14px);opacity:0}100%{opacity:0}}
+
+/* ---------- Reveal animations ---------- */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.reveal[data-delay="1"]{transition-delay:.12s}
+.reveal[data-delay="2"]{transition-delay:.24s}
+.reveal[data-delay="3"]{transition-delay:.36s}
+
+/* ---------- Haircuts ---------- */
+#haircuts{background:radial-gradient(1000px 500px at 85% 0%,rgba(201,162,39,.07),transparent 60%)}
+.cuts-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:26px;margin-top:56px}
+.cut-card{
+  background:linear-gradient(180deg,#1c1510,#14100b);
+  border:1px solid rgba(201,162,39,.15);border-radius:var(--radius);
+  overflow:hidden;transition:all .5s var(--ease);position:relative;
+}
+.cut-card:hover{transform:translateY(-10px);border-color:rgba(201,162,39,.55);box-shadow:var(--shadow)}
+.cut-card .img-wrap{height:280px;overflow:hidden;position:relative}
+.cut-card .img-wrap::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(20,16,11,.9))}
+.cut-card img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease)}
+.cut-card:hover img{transform:scale(1.09)}
+.cut-body{padding:24px 24px 26px}
+.cut-tag{font-size:.64rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+.cut-body h3{font-size:1.45rem;color:var(--white);margin:7px 0 8px}
+.cut-body p{font-size:.88rem;color:var(--muted);font-weight:300;min-height:44px}
+.cut-foot{display:flex;justify-content:space-between;align-items:center;margin-top:18px;padding-top:16px;border-top:1px solid rgba(201,162,39,.15)}
+.price{font-family:'Cormorant Garamond',serif;font-size:1.35rem;color:var(--gold)}
+.price small{font-family:'Jost';font-size:.68rem;color:var(--muted);letter-spacing:.1em;display:block}
+.book-link{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--cream);display:flex;align-items:center;gap:7px;transition:.3s}
+.book-link:hover{color:var(--gold);gap:11px}
+
+/* ---------- Services ---------- */
+#services{background:linear-gradient(180deg,var(--black),#171009 50%,var(--black))}
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px;margin-top:56px}
+.svc-card{
+  padding:36px 30px;border:1px solid rgba(243,234,217,.09);border-radius:var(--radius);
+  background:rgba(255,255,255,.02);transition:all .5s var(--ease);position:relative;overflow:hidden;
+}
+.svc-card::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  transform:scaleX(0);transition:transform .6s var(--ease);
+}
+.svc-card:hover{background:rgba(201,162,39,.06);border-color:rgba(201,162,39,.35);transform:translateY(-6px)}
+.svc-card:hover::before{transform:scaleX(1)}
+.svc-icon{
+  width:58px;height:58px;border-radius:50%;border:1px solid rgba(201,162,39,.5);
+  display:grid;place-items:center;color:var(--gold);margin-bottom:22px;
+  background:radial-gradient(circle at 30% 30%,rgba(201,162,39,.18),transparent 70%);
+  transition:.5s var(--ease);
+}
+.svc-card:hover .svc-icon{background:var(--gold);color:#191207;transform:rotate(-8deg) scale(1.05)}
+.svc-icon svg{width:25px;height:25px}
+.svc-card h3{font-size:1.35rem;color:var(--white);margin-bottom:9px}
+.svc-card p{font-size:.87rem;color:var(--muted);font-weight:300}
+
+/* ---------- Gallery ---------- */
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:230px;gap:16px;margin-top:56px}
+.g-item{border-radius:14px;overflow:hidden;position:relative;cursor:pointer}
+.g-item:nth-child(1){grid-column:span 2;grid-row:span 2}
+.g-item:nth-child(4){grid-row:span 2}
+.g-item:nth-child(6){grid-column:span 2}
+.g-item img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
+.g-item::after{
+  content:attr(data-label);position:absolute;left:0;right:0;bottom:0;padding:36px 18px 14px;
+  font-size:.7rem;letter-spacing:.26em;text-transform:uppercase;color:var(--cream);
+  background:linear-gradient(180deg,transparent,rgba(13,10,8,.9));
+  opacity:0;transform:translateY(10px);transition:.45s var(--ease);
+}
+.g-item:hover img{transform:scale(1.08)}
+.g-item:hover::after{opacity:1;transform:none}
+.lightbox{
+  position:fixed;inset:0;background:rgba(10,8,6,.94);z-index:200;display:grid;place-items:center;
+  opacity:0;pointer-events:none;transition:.35s;padding:24px;
+}
+.lightbox.open{opacity:1;pointer-events:auto}
+.lightbox img{max-width:min(92vw,900px);max-height:86vh;border-radius:12px;box-shadow:var(--shadow)}
+.lightbox-close{position:absolute;top:26px;right:32px;font-size:2.2rem;color:var(--cream);background:none;border:none;cursor:pointer;line-height:1}
+.lightbox-close:hover{color:var(--gold)}
+
+/* ---------- Appointment ---------- */
+#appointment{background:radial-gradient(900px 500px at 10% 100%,rgba(201,162,39,.08),transparent 60%)}
+.appt-wrap{
+  display:grid;grid-template-columns:1fr 1.15fr;gap:60px;align-items:start;margin-top:56px;
+}
+.appt-side h3{font-size:1.9rem;color:var(--white);margin-bottom:16px}
+.appt-side p{color:var(--muted);font-weight:300;margin-bottom:30px}
+.appt-quick{display:flex;flex-direction:column;gap:14px}
+.form-card{
+  background:linear-gradient(180deg,#1d1610,#151009);
+  border:1px solid rgba(201,162,39,.2);border-radius:22px;padding:42px;box-shadow:var(--shadow);
+}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.field{margin-bottom:18px}
+.field label{display:block;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.field input,.field select,.field textarea{
+  width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(243,234,217,.14);
+  border-radius:10px;padding:14px 16px;color:var(--cream);font-family:'Jost';font-size:.95rem;
+  transition:.3s;outline:none;
+}
+.field textarea{resize:vertical;min-height:96px}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--gold);background:rgba(201,162,39,.06)}
+.field select option{background:var(--dark)}
+.form-note{font-size:.78rem;color:var(--muted);margin-top:14px;text-align:center}
+.form-success{
+  display:none;margin-top:16px;padding:14px 18px;border-radius:10px;
+  background:rgba(30,179,86,.12);border:1px solid rgba(30,179,86,.4);color:#7ee2a8;font-size:.9rem;text-align:center;
+}
+
+/* ---------- Contact ---------- */
+#contact{background:linear-gradient(180deg,var(--black),#1b1209)}
+.contact-card{
+  margin-top:56px;border-radius:26px;overflow:hidden;position:relative;
+  border:1px solid rgba(201,162,39,.25);
+  background:url('https://kimi-web-img.kimi.ai/img/www.shopsaloncity.com/2b0417b42e1e2cdee142a0434181d296c504f531.jpg') center/cover;
+  box-shadow:var(--shadow);
+}
+.contact-card::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(13,10,8,.95) 30%,rgba(13,10,8,.75))}
+.contact-inner{position:relative;z-index:2;padding:70px 60px;max-width:640px}
+.contact-inner h3{font-size:clamp(1.8rem,3.4vw,2.6rem);color:var(--white);margin-bottom:14px}
+.contact-inner>p{color:var(--cream-soft);font-weight:300;margin-bottom:34px}
+.contact-lines{display:flex;flex-direction:column;gap:16px;margin-bottom:36px}
+.contact-line{display:flex;align-items:center;gap:16px;color:var(--cream)}
+.contact-line .ic{
+  width:46px;height:46px;border-radius:50%;border:1px solid var(--gold);color:var(--gold);
+  display:grid;place-items:center;flex:none;background:rgba(13,10,8,.5);
+}
+.contact-line .ic svg{width:19px;height:19px}
+.contact-line .t small{display:block;font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
+.contact-line .t span{font-size:1.15rem;letter-spacing:.04em}
+.contact-btns{display:flex;gap:16px;flex-wrap:wrap}
+.hours{margin-top:30px;font-size:.82rem;color:var(--muted);letter-spacing:.06em}
+.hours strong{color:var(--gold);font-weight:500}
+
+/* ---------- Footer ---------- */
+footer{border-top:1px solid rgba(201,162,39,.15);background:#0a0806;padding:70px 0 0}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:44px;padding-bottom:54px}
+.footer-brand p{color:var(--muted);font-size:.9rem;font-weight:300;margin:16px 0 22px;max-width:300px}
+footer h4{font-family:'Cormorant Garamond',serif;font-size:1.25rem;color:var(--white);margin-bottom:18px;letter-spacing:.04em}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:11px}
+.footer-links a{color:var(--muted);font-size:.9rem;font-weight:300;transition:.3s;display:inline-flex;align-items:center;gap:8px}
+.footer-links a::before{content:"";width:0;height:1px;background:var(--gold);transition:.3s}
+.footer-links a:hover{color:var(--gold)}
+.footer-links a:hover::before{width:14px}
+.footer-contact{display:flex;flex-direction:column;gap:14px}
+.footer-contact a{display:flex;align-items:center;gap:11px;color:var(--cream);font-size:.95rem}
+.footer-contact a:hover{color:var(--gold)}
+.footer-contact svg{width:16px;height:16px;color:var(--gold);flex:none}
+.footer-bottom{
+  border-top:1px solid rgba(243,234,217,.07);padding:22px 0;
+  display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;
+  font-size:.8rem;color:var(--muted);
+}
+
+/* ---------- Floating buttons ---------- */
+.float-wa{
+  position:fixed;bottom:26px;right:26px;z-index:90;width:60px;height:60px;border-radius:50%;
+  background:#1eb356;display:grid;place-items:center;box-shadow:0 14px 34px rgba(30,179,86,.45);
+  transition:.4s var(--ease);animation:pulse 2.6s infinite;
+}
+.float-wa:hover{transform:scale(1.1)}
+.float-wa svg{width:30px;height:30px;fill:#fff}
+@keyframes pulse{0%{box-shadow:0 14px 34px rgba(30,179,86,.45),0 0 0 0 rgba(30,179,86,.5)}70%{box-shadow:0 14px 34px rgba(30,179,86,.45),0 0 0 18px rgba(30,179,86,0)}100%{box-shadow:0 14px 34px rgba(30,179,86,.45),0 0 0 0 rgba(30,179,86,0)}}
+
+/* ---------- Responsive ---------- */
+@media(max-width:1024px){
+  .gallery-grid{grid-template-columns:repeat(3,1fr)}
+  .appt-wrap{grid-template-columns:1fr;gap:44px}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:860px){
+  .nav-links,.nav-call{display:none}
+  .hamburger{display:block}
+  .hero{background-attachment:scroll}
+}
+@media(max-width:640px){
+  .section{padding:72px 0}
+  .gallery-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:190px}
+  .g-item:nth-child(1){grid-column:span 2;grid-row:span 1}
+  .g-item:nth-child(6){grid-column:span 2}
+  .form-card{padding:30px 24px}
+  .form-row{grid-template-columns:1fr}
+  .contact-inner{padding:48px 26px}
+  .footer-grid{grid-template-columns:1fr}
+  .hero-meta{gap:26px}
+  .btn{padding:15px 26px;font-size:.74rem}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== Header ===== -->
+<header id="header">
+  <div class="container nav">
+    <a href="#home" class="logo">
+      <span class="logo-mark">L</span>
+      <span class="logo-name">LUXE <span>Hair Lounge</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#haircuts">Haircuts</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#appointment">Book</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a class="nav-call" href="tel:0704281974">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        070 428 1974
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#home">Home</a>
+  <a href="#haircuts">Haircuts</a>
+  <a href="#services">Services</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#appointment">Book Now</a>
+  <a href="#contact">Contact</a>
+  <a class="btn btn-gold" href="tel:0704281974" style="font-family:'Jost'">Call 070 428 1974</a>
+</div>
+
+<!-- ===== Hero ===== -->
+<section class="hero" id="home">
+  <div class="container">
+    <div class="hero-inner">
+      <span class="eyebrow reveal">Premium Hair Salon</span>
+      <h1 class="reveal" data-delay="1">Look Good.<br><em>Feel Amazing.</em></h1>
+      <p class="hero-sub reveal" data-delay="2">Professional Haircuts &amp; Hair Styling for Your Perfect Look.</p>
+      <div class="hero-btns reveal" data-delay="3">
+        <a class="btn btn-gold" href="tel:0704281974">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Call Now
+        </a>
+        <a class="btn btn-wa" href="https://wa.me/94704281974?text=Hi%2C%20I%27d%20like%20to%20make%20an%20appointment%20at%20your%20salon." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.96L2 22l5.2-1.5A9.9 9.9 0 1 0 12.04 2zm5.8 14.1c-.25.7-1.45 1.33-2 1.42-.52.09-1.17.13-1.9-.12a16 16 0 0 1-1.72-.63c-3.02-1.3-4.99-4.34-5.14-4.54-.15-.2-1.23-1.63-1.23-3.11 0-1.48.78-2.2 1.05-2.5.28-.3.6-.38.8-.38h.58c.18 0 .43-.07.67.5.25.6.85 2.07.92 2.22.08.15.13.33.03.53-.1.2-.15.32-.3.5-.15.17-.32.4-.45.53-.15.15-.3.31-.13.61.17.3.76 1.24 1.63 2.01 1.12.99 2.06 1.3 2.35 1.45.3.15.47.12.64-.08.18-.2.75-.87.94-1.17.2-.3.4-.25.66-.15.27.1 1.7.8 1.99.95.3.15.48.22.55.34.07.13.07.72-.18 1.42z"/></svg>
+          WhatsApp Us
+        </a>
+      </div>
+      <div class="hero-meta reveal" data-delay="3">
+        <div class="item"><div class="num">12+</div><div class="lbl">Signature Cuts</div></div>
+        <div class="item"><div class="num">7</div><div class="lbl">Expert Services</div></div>
+        <div class="item"><div class="num">100%</div><div class="lbl">Satisfaction</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint"></div>
+</section>
+
+<!-- ===== Haircuts ===== -->
+<section class="section" id="haircuts">
+  <div class="container">
+    <div class="center reveal">
+      <span class="eyebrow center">Our Signature Styles</span>
+      <h2 class="section-title">Our <em>Haircuts</em></h2>
+      <p class="section-sub">From timeless classics to the sharpest modern fades — every cut is crafted with precision, tailored to your face shape and lifestyle.</p>
+    </div>
+    <div class="cuts-grid" id="cutsGrid"></div>
+  </div>
+</section>
+
+<!-- ===== Services ===== -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="center reveal">
+      <span class="eyebrow center">What We Do</span>
+      <h2 class="section-title">Premium <em>Services</em></h2>
+      <p class="section-sub">A complete range of professional hair care, delivered with luxury products and masterful technique.</p>
+    </div>
+    <div class="svc-grid" id="svcGrid"></div>
+  </div>
+</section>
+
+<!-- ===== Gallery ===== -->
+<section class="section" id="gallery">
+  <div class="container">
+    <div class="center reveal">
+      <span class="eyebrow center">Our Work</span>
+      <h2 class="section-title">The <em>Gallery</em></h2>
+      <p class="section-sub">Real styles, real clients — a glimpse inside our salon and the transformations we create every day.</p>
+    </div>
+    <div class="gallery-grid reveal" id="galleryGrid"></div>
+  </div>
+</section>
+
+<!-- ===== Appointment ===== -->
+<section class="section" id="appointment">
+  <div class="container">
+    <div class="center reveal">
+      <span class="eyebrow center">Reserve Your Chair</span>
+      <h2 class="section-title">Book Your <em>Appointment</em></h2>
+    </div>
+    <div class="appt-wrap">
+      <div class="appt-side reveal">
+        <h3 class="serif">Skip the wait — book in seconds.</h3>
+        <p>Fill in your details and we'll confirm your appointment instantly via WhatsApp. Prefer to talk? Call us or drop a message anytime during opening hours.</p>
+        <div class="appt-quick">
+          <a class="btn btn-gold" href="tel:0704281974">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Call Now — 070 428 1974
+          </a>
+          <a class="btn btn-wa" href="https://wa.me/94704281974?text=Hi%2C%20I%27d%20like%20to%20make%20an%20appointment%20at%20your%20salon." target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.96L2 22l5.2-1.5A9.9 9.9 0 1 0 12.04 2zm5.8 14.1c-.25.7-1.45 1.33-2 1.42-.52.09-1.17.13-1.9-.12a16 16 0 0 1-1.72-.63c-3.02-1.3-4.99-4.34-5.14-4.54-.15-.2-1.23-1.63-1.23-3.11 0-1.48.78-2.2 1.05-2.5.28-.3.6-.38.8-.38h.58c.18 0 .43-.07.67.5.25.6.85 2.07.92 2.22.08.15.13.33.03.53-.1.2-.15.32-.3.5-.15.17-.32.4-.45.53-.15.15-.3.31-.13.61.17.3.76 1.24 1.63 2.01 1.12.99 2.06 1.3 2.35 1.45.3.15.47.12.64-.08.18-.2.75-.87.94-1.17.2-.3.4-.25.66-.15.27.1 1.7.8 1.99.95.3.15.48.22.55.34.07.13.07.72-.18 1.42z"/></svg>
+            WhatsApp Us
+          </a>
+        </div>
+        <div class="hours" style="margin-top:26px"><strong>Open Daily</strong> · 9:00 AM – 8:00 PM · Walk-ins Welcome</div>
+      </div>
+      <form class="form-card reveal" data-delay="1" id="apptForm">
+        <div class="form-row">
+          <div class="field"><label for="fname">Name</label><input id="fname" type="text" placeholder="Your name" required></div>
+          <div class="field"><label for="fphone">Phone Number</label><input id="fphone" type="tel" placeholder="07X XXX XXXX" required></div>
+        </div>
+        <div class="form-row">
+          <div class="field"><label for="fdate">Preferred Date</label><input id="fdate" type="date" required></div>
+          <div class="field"><label for="ftime">Preferred Time</label><input id="ftime" type="time" required></div>
+        </div>
+        <div class="field">
+          <label for="fservice">Service</label>
+          <select id="fservice" required>
+            <option value="" disabled selected>Select a service</option>
+            <option>Hair Cutting</option><option>Hair Styling</option><option>Hair Coloring</option>
+            <option>Hair Treatment</option><option>Beard Styling</option><option>Hair Wash</option><option>Blow Dry</option>
+          </select>
+        </div>
+        <div class="field"><label for="fmsg">Message</label><textarea id="fmsg" placeholder="Anything we should know? (optional)"></textarea></div>
+        <button type="submit" class="btn btn-gold" style="width:100%">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.96L2 22l5.2-1.5A9.9 9.9 0 1 0 12.04 2zm5.8 14.1c-.25.7-1.45 1.33-2 1.42-.52.09-1.17.13-1.9-.12a16 16 0 0 1-1.72-.63c-3.02-1.3-4.99-4.34-5.14-4.54-.15-.2-1.23-1.63-1.23-3.11 0-1.48.78-2.2 1.05-2.5.28-.3.6-.38.8-.38h.58c.18 0 .43-.07.67.5.25.6.85 2.07.92 2.22.08.15.13.33.03.53-.1.2-.15.32-.3.5-.15.17-.32.4-.45.53-.15.15-.3.31-.13.61.17.3.76 1.24 1.63 2.01 1.12.99 2.06 1.3 2.35 1.45.3.15.47.12.64-.08.18-.2.75-.87.94-1.17.2-.3.4-.25.66-.15.27.1 1.7.8 1.99.95.3.15.48.22.55.34.07.13.07.72-.18 1.42z"/></svg>
+          Confirm via WhatsApp
+        </button>
+        <div class="form-success" id="formSuccess">Opening WhatsApp with your booking details…</div>
+        <p class="form-note">Submitting opens WhatsApp with your details pre-filled — just press send.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Contact ===== -->
+<section class="section" id="contact">
+  <div class="container">
+    <div class="center reveal">
+      <span class="eyebrow center">Get In Touch</span>
+      <h2 class="section-title">Contact <em>Us</em></h2>
+    </div>
+    <div class="contact-card reveal">
+      <div class="contact-inner">
+        <h3 class="serif">Your perfect look is one call away.</h3>
+        <p>Questions, appointments, or style advice — our team is happy to help.</p>
+        <div class="contact-lines">
+          <div class="contact-line">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+            <div class="t"><small>Call Us</small><span>070 428 1974</span></div>
+          </div>
+          <div class="contact-line">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.96L2 22l5.2-1.5A9.9 9.9 0 1 0 12.04 2zm5.8 14.1c-.25.7-1.45 1.33-2 1.42-.52.09-1.17.13-1.9-.12a16 16 0 0 1-1.72-.63c-3.02-1.3-4.99-4.34-5.14-4.54-.15-.2-1.23-1.63-1.23-3.11 0-1.48.78-2.2 1.05-2.5.28-.3.6-.38.8-.38h.58c.18 0 .43-.07.67.5.25.6.85 2.07.92 2.22.08.15.13.33.03.53-.1.2-.15.32-.3.5-.15.17-.32.4-.45.53-.15.15-.3.31-.13.61.17.3.76 1.24 1.63 2.01 1.12.99 2.06 1.3 2.35 1.45.3.15.47.12.64-.08.18-.2.75-.87.94-1.17.2-.3.4-.25.66-.15.27.1 1.7.8 1.99.95.3.15.48.22.55.34.07.13.07.72-.18 1.42z"/></svg></span>
+            <div class="t"><small>WhatsApp</small><span>+94 70 428 1974</span></div>
+          </div>
+        </div>
+        <div class="contact-btns">
+          <a class="btn btn-gold" href="tel:0704281974">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Call Now
+          </a>
+          <a class="btn btn-wa" href="https://wa.me/94704281974?text=Hi%2C%20I%27d%20like%20to%20make%20an%20appointment%20at%20your%20salon." target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.96L2 22l5.2-1.5A9.9 9.9 0 1 0 12.04 2zm5.8 14.1c-.25.7-1.45 1.33-2 1.42-.52.09-1.17.13-1.9-.12a16 16 0 0 1-1.72-.63c-3.02-1.3-4.99-4.34-5.14-4.54-.15-.2-1.23-1.63-1.23-3.11 0-1.48.78-2.2 1.05-2.5.28-.3.6-.38.8-.38h.58c.18 0 .43-.07.67.5.25.6.85 2.07.92 2.22.08.15.13.33.03.53-.1.2-.15.32-.3.5-.15.17-.32.4-.45.53-.15.15-.3.31-.13.61.17.3.76 1.24 1.63 2.01 1.12.99 2.06 1.3 2.35 1.45.3.15.47.12.64-.08.18-.2.75-.87.94-1.17.2-.3.4-.25.66-.15.27.1 1.7.8 1.99.95.3.15.48.22.55.34.07.13.07.72-.18 1.42z"/></svg>
+            WhatsApp Us
+          </a>
+        </div>
+        <p class="hours"><strong>Open Daily</strong> 9:00 AM – 8:00 PM · Walk-ins Welcome</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#home" class="logo">
+          <span class="logo-mark">L</span>
+          <span class="logo-name">LUXE <span>Hair Lounge</span></span>
+        </a>
+        <p>Where style meets artistry. Premium haircuts, styling and treatments in a luxurious, relaxing atmosphere.</p>
+        <a class="btn btn-wa" style="padding:12px 24px;font-size:.72rem" href="https://wa.me/94704281974?text=Hi%2C%20I%27d%20like%20to%20make%20an%20appointment%20at%20your%20salon." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" style="width:15px;height:15px"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.96L2 22l5.2-1.5A9.9 9.9 0 1 0 12.04 2z"/></svg>
+          WhatsApp Us
+        </a>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#haircuts">Our Haircuts</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#appointment">Book Appointment</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul class="footer-links">
+          <li><a href="#services">Hair Cutting</a></li>
+          <li><a href="#services">Hair Styling</a></li>
+          <li><a href="#services">Hair Coloring</a></li>
+          <li><a href="#services">Hair Treatment</a></li>
+          <li><a href="#services">Beard Styling</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <div class="footer-contact">
+          <a href="tel:0704281974">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            070 428 1974
+          </a>
+          <a href="https://wa.me/94704281974?text=Hi%2C%20I%27d%20like%20to%20make%20an%20appointment%20at%20your%20salon." target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.96L2 22l5.2-1.5A9.9 9.9 0 1 0 12.04 2z"/></svg>
+            +94 70 428 1974
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 LUXE Hair Lounge. All rights reserved.</span>
+      <span>Look Good. Feel Amazing.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp -->
+<a class="float-wa" href="https://wa.me/94704281974?text=Hi%2C%20I%27d%20like%20to%20make%20an%20appointment%20at%20your%20salon." target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.96L2 22l5.2-1.5A9.9 9.9 0 1 0 12.04 2zm5.8 14.1c-.25.7-1.45 1.33-2 1.42-.52.09-1.17.13-1.9-.12a16 16 0 0 1-1.72-.63c-3.02-1.3-4.99-4.34-5.14-4.54-.15-.2-1.23-1.63-1.23-3.11 0-1.48.78-2.2 1.05-2.5.28-.3.6-.38.8-.38h.58c.18 0 .43-.07.67.5.25.6.85 2.07.92 2.22.08.15.13.33.03.53-.1.2-.15.32-.3.5-.15.17-.32.4-.45.53-.15.15-.3.31-.13.61.17.3.76 1.24 1.63 2.01 1.12.99 2.06 1.3 2.35 1.45.3.15.47.12.64-.08.18-.2.75-.87.94-1.17.2-.3.4-.25.66-.15.27.1 1.7.8 1.99.95.3.15.48.22.55.34.07.13.07.72-.18 1.42z"/></svg>
+</a>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox"><button class="lightbox-close" id="lbClose">&times;</button><img id="lbImg" alt="Gallery preview"></div>
+
+<script>
+/* ---------- Data ---------- */
+const WA = 'https://wa.me/94704281974';
+const WA_MSG = 'Hi, I\'d like to make an appointment at your salon.';
+
+const cuts = [
+  {name:'Classic Haircut', tag:'Timeless', price:'Rs. 1,500', desc:'The ever-elegant scissor cut — clean, sharp and always in style.', img:'https://kimi-web-img.kimi.ai/img/www.obviousmag.com/37e2467c2a023afa881d4bfe15bd130c15299748.png'},
+  {name:'Modern Fade', tag:'Trending', price:'Rs. 1,800', desc:'A seamless blend from skin to length with a contemporary finish.', img:'https://kimi-web-img.kimi.ai/img/lalajithebarbershop.ca/a1d8ea99269f5c10705d217a03b6ad35f65204be.webp'},
+  {name:'Low Fade', tag:'Subtle', price:'Rs. 1,800', desc:'The fade starts just above the ear for a soft, professional look.', img:'https://kimi-web-img.kimi.ai/img/cdn.shopify.com/f86cfd738d5b1ff3d41f05098173d8c94f76ee6e.webp'},
+  {name:'Mid Fade', tag:'Sharp', price:'Rs. 1,800', desc:'Perfectly balanced fade around the temples — bold yet versatile.', img:'https://kimi-web-img.kimi.ai/img/cdn.shopify.com/53c8e4bf9ea2d776861b6fae037d92e0c0863c60.webp'},
+  {name:'High Fade', tag:'Bold', price:'Rs. 2,000', desc:'High-contrast fade that makes the top pop with maximum impact.', img:'https://kimi-web-img.kimi.ai/img/cdn.shopify.com/dd91368c43da80a25db179393ca9c93338887563.webp'},
+  {name:'Skin Fade', tag:'Precision', price:'Rs. 2,200', desc:'Blended down to the skin for the cleanest, crispest finish.', img:'https://kimi-web-img.kimi.ai/img/i0.wp.com/20690d4c98a4a1b41b555ac63b61e3a4c05a3b88.jpg'},
+  {name:'Textured Crop', tag:'Modern', price:'Rs. 1,800', desc:'Choppy texture on top with a tight fade — effortless and fresh.', img:'https://kimi-web-img.kimi.ai/img/cdn.shopify.com/245eab81a358736b6a02733d2464df0ac5b4fb10.webp'},
+  {name:'Pompadour', tag:'Classic', price:'Rs. 2,000', desc:'Iconic volume swept back — vintage swagger with a modern edge.', img:'https://kimi-web-img.kimi.ai/img/cdn.shopify.com/3c71a6de99675d5e30ae050d5a156fc995cf1e43.jpg'},
+  {name:'Undercut', tag:'Edgy', price:'Rs. 2,000', desc:'Disconnected sides with length on top for a striking statement.', img:'https://kimi-web-img.kimi.ai/img/forteseries.com/a018ec43ebc9842fb9d89da6e21f8aa7e41dbca3.webp'},
+  {name:'Layer Cut', tag:'Volume', price:'Rs. 2,500', desc:'Beautifully blended layers that add movement, bounce and body.', img:'https://kimi-web-img.kimi.ai/img/content.latest-hairstyles.com/22535a0b7b8a993ea98a28d1b5cc9eb758ecb01a.jpg'},
+  {name:'Bob Cut', tag:'Chic', price:'Rs. 2,500', desc:'The timeless bob — sleek, sophisticated and endlessly versatile.', img:'https://kimi-web-img.kimi.ai/img/media.istockphoto.com/fa27cb08316258e9353fa17b1956a22f15cfc314.jpg'},
+  {name:'Long Layer', tag:'Elegant', price:'Rs. 3,000', desc:'Soft cascading layers that keep long hair light, flowing and healthy.', img:'https://kimi-web-img.kimi.ai/img/i0.wp.com/ace92fd6fb2a25ead359880698b13f428c1988ee.jpg'},
+  {name:'Curtain Haircut', tag:'Retro', price:'Rs. 1,800', desc:'The 90s middle-part revival — relaxed, wavy and effortlessly cool.', img:'https://kimi-web-img.kimi.ai/img/cdn.shopify.com/61854cba74e213441b4cd2a6bb9d5cd008505cfe.webp'}
+];
+
+const icons = {
+  cut:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.1 7.9 20 20M8.1 16.1 20 4M14.5 10.5l-2 2"/></svg>',
+  style:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v3M5.6 5.6l2.2 2.2M3 12h3M18.4 5.6l-2.2 2.2M21 12h-3M12 21a4 4 0 0 0 4-4v-2a4 4 0 0 0-8 0v2a4 4 0 0 0 4 4z"/></svg>',
+  color:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2s6 6.3 6 11a6 6 0 0 1-12 0c0-4.7 6-11 6-11z"/><path d="M9.5 14.5a2.5 2.5 0 0 0 2.5 2.5"/></svg>',
+  treat:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21c-4.5-2.5-8-5.8-8-10a5 5 0 0 1 8-4 5 5 0 0 1 8 4c0 4.2-3.5 7.5-8 10z"/><path d="M7 12h3l1.5-3 2 5L15 12h2"/></svg>',
+  beard:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3a7 7 0 0 0-7 7c0 3 1.5 5 3 6.5.8.9 1.5 2 2 4.5h4c.5-2.5 1.2-3.6 2-4.5 1.5-1.5 3-3.5 3-6.5a7 7 0 0 0-7-7z"/><path d="M9 10h.01M15 10h.01"/></svg>',
+  wash:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16a8 8 0 0 1-16 0z"/><path d="M8 8c0-1 .8-1 .8-2M12 8c0-1 .8-1 .8-2M16 8c0-1 .8-1 .8-2"/></svg>',
+  blow:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h9a3 3 0 1 0-3-3M3 12h13a3 3 0 1 1-3 3M3 16h7a2.5 2.5 0 1 1-2.5 2.5"/></svg>'
+};
+
+const services = [
+  {icon:icons.cut, name:'Hair Cutting', desc:'Precision cuts tailored to your face shape, hair type and personal style.'},
+  {icon:icons.style, name:'Hair Styling', desc:'Red-carpet ready styling for events, weddings and everyday elegance.'},
+  {icon:icons.color, name:'Hair Coloring', desc:'Full color, highlights, balayage and fashion shades by expert colorists.'},
+  {icon:icons.treat, name:'Hair Treatment', desc:'Deep repair, keratin and scalp therapies for healthy, lustrous hair.'},
+  {icon:icons.beard, name:'Beard Styling', desc:'Sculpted beards with precise lines, hot towel finish and premium oils.'},
+  {icon:icons.wash, name:'Hair Wash', desc:'Relaxing cleanse with luxurious products and a soothing scalp massage.'},
+  {icon:icons.blow, name:'Blow Dry', desc:'Silky smooth or voluminous bounce — a flawless finish every time.'}
+];
+
+const gallery = [
+  {img:'https://kimi-web-img.kimi.ai/img/www.bodycraft.co.in/2603d800ee41c1f806a67685323a1d1b54bcb5e7.jpg', label:'Master Styling'},
+  {img:'https://kimi-web-img.kimi.ai/img/media.istockphoto.com/2975523ceccaacf0cd588f42633bb9e0aff4fef4.jpg', label:'Before & After'},
+  {img:'https://kimi-web-img.kimi.ai/img/www.southernliving.com/fashion-beauty/hairstyles/hair-long-layers/f9a299d80e46267ba728d921a05b5dc5aae5d726.png', label:'Color & Layers'},
+  {img:'https://kimi-web-img.kimi.ai/img/forteseries.com/06d4a13cc3f483a6005b4747a54f6c2d39968b44.webp', label:'Pompadour Styles'},
+  {img:'https://kimi-web-img.kimi.ai/img/d39l2hkdp2esp1.cloudfront.net/c91baff4d4e0fd397ef732b3ca3c45735b27c5f7.jpg', label:'Professional Styling'},
+  {img:'https://kimi-web-img.kimi.ai/img/static.vecteezy.com/ec5dc2b1d43ae93a530fe647133b74bfaed65c5f.jpeg', label:'Salon Experience'},
+  {img:'https://kimi-web-img.kimi.ai/img/menshaircuts.com/c1ee7a7d4d390d3053fb1839b0a6cfd4e574cdc9.jpg', label:'Curtain & Texture'}
+];
+
+/* ---------- Render ---------- */
+document.getElementById('cutsGrid').innerHTML = cuts.map((c,i)=>`
+  <article class="cut-card reveal" data-delay="${i%3}">
+    <div class="img-wrap"><img src="${c.img}" alt="${c.name}" loading="lazy"></div>
+    <div class="cut-body">
+      <span class="cut-tag">${c.tag}</span>
+      <h3>${c.name}</h3>
+      <p>${c.desc}</p>
+      <div class="cut-foot">
+        <div class="price"><small>From</small>${c.price}</div>
+        <a class="book-link" href="${WA}?text=${encodeURIComponent(`Hi, I'd like to book a ${c.name} appointment at your salon.`)}">Book <span>&rarr;</span></a>
+      </div>
+    </div>
+  </article>`).join('');
+
+document.getElementById('svcGrid').innerHTML = services.map((s,i)=>`
+  <div class="svc-card reveal" data-delay="${i%3}">
+    <div class="svc-icon">${s.icon}</div>
+    <h3>${s.name}</h3>
+    <p>${s.desc}</p>
+  </div>`).join('');
+
+document.getElementById('galleryGrid').innerHTML = gallery.map(g=>`
+  <div class="g-item" data-label="${g.label}"><img src="${g.img}" alt="${g.label}" loading="lazy"></div>`).join('');
+
+/* ---------- Header / mobile menu ---------- */
+const header = document.getElementById('header');
+window.addEventListener('scroll', ()=> header.classList.toggle('scrolled', scrollY > 40));
+
+const burger = document.getElementById('hamburger');
+const mMenu = document.getElementById('mobileMenu');
+burger.addEventListener('click', ()=>{
+  burger.classList.toggle('open');
+  mMenu.classList.toggle('open');
+  document.body.style.overflow = mMenu.classList.contains('open') ? 'hidden' : '';
+});
+mMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click', ()=>{
+  burger.classList.remove('open'); mMenu.classList.remove('open'); document.body.style.overflow='';
+}));
+
+/* ---------- Reveal on scroll ---------- */
+const io = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* ---------- Lightbox ---------- */
+const lb = document.getElementById('lightbox'), lbImg = document.getElementById('lbImg');
+document.querySelectorAll('.g-item').forEach(item=>{
+  item.addEventListener('click', ()=>{
+    lbImg.src = item.querySelector('img').src;
+    lb.classList.add('open');
+    document.body.style.overflow='hidden';
+  });
+});
+document.getElementById('lbClose').addEventListener('click', closeLb);
+lb.addEventListener('click', e=>{ if(e.target===lb) closeLb(); });
+function closeLb(){ lb.classList.remove('open'); document.body.style.overflow=''; }
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeLb(); });
+
+/* ---------- Appointment form -> WhatsApp ---------- */
+document.getElementById('apptForm').addEventListener('submit', e=>{
+  e.preventDefault();
+  const v = id => document.getElementById(id).value.trim();
+  const dateVal = v('fdate');
+  const dateTxt = dateVal ? new Date(dateVal+'T00:00').toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'}) : '';
+  const lines = [
+    "Hi, I'd like to make an appointment at your salon.",
+    '',
+    `Name: ${v('fname')}`,
+    `Phone: ${v('fphone')}`,
+    `Service: ${v('fservice')}`,
+    `Date: ${dateTxt}`,
+    `Time: ${v('ftime')}`
+  ];
+  if(v('fmsg')) lines.push(`Message: ${v('fmsg')}`);
+  document.getElementById('formSuccess').style.display='block';
+  setTimeout(()=>{ window.open(`${WA}?text=${encodeURIComponent(lines.join('\n'))}`, '_blank'); }, 500);
+});
+
+/* ---------- Set min date to today ---------- */
+document.getElementById('fdate').min = new Date().toISOString().split('T')[0];
+</script>
+</body>
+</html>
